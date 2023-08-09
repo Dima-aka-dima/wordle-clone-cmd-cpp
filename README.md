@@ -10,5 +10,7 @@ To run
 ./main
 ```
 To exit and show the answer enter `.`.
+
 Example
-![wordle-screenshot](https://github.com/Dima-aka-dima/wordle-clone-cmd-cpp/assets/99353558/0b5a217c-9073-435f-835f-b81401fe04f9)
+
+<img src="https://github.com/Dima-aka-dima/wordle-clone-cmd-cpp/assets/99353558/8d9918c5-fef6-4dce-b67d-8a095e8f3beb" alt="wordle-screenshot" width="300"/>
