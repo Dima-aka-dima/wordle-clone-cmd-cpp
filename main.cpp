@@ -12,6 +12,9 @@
 #define GREEN  "\x1B[32m"
 #define YELLOW "\x1B[33m"
 #define WHITE  "\x1B[37m"
+#define BLACK  "\x1B[30m"
+
+#define MAIN_TEXT_COLOR BLACK
 
 int main(){
   
@@ -66,7 +69,7 @@ int main(){
 	continue;
       }
       
-      colors[i] = WHITE;
+      colors[i] = MAIN_TEXT_COLOR;
       wrong_letters[input[i] - 'a'] = true;
     }
 
@@ -76,7 +79,7 @@ int main(){
     for(size_t i = 0; i < N; i++) std::cout << colors[i] << input[i];
     std::cout << RESET "      ";
     for(size_t i = 0; i < 26; i++)
-      std::cout << (wrong_letters[i] ? RED : WHITE) << char(i + 'a');
+      std::cout << (wrong_letters[i] ? RED : MAIN_TEXT_COLOR) << char(i + 'a');
     std::cout << RESET << std::endl;
 
     turn++;
