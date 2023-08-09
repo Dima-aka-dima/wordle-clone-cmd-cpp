@@ -14,7 +14,7 @@
 #define WHITE  "\x1B[37m"
 #define BLACK  "\x1B[30m"
 
-#define MAIN_TEXT_COLOR BLACK
+#define MAIN_TEXT_COLOR WHITE
 
 int main(){
   
@@ -38,7 +38,7 @@ int main(){
   std::string input;
   std::vector<std::string> colors(N, RESET);
   size_t turn = 0;
-  bool has_won = false;
+  bool won = false;
 
   while(true){
     std::cin >> input;
@@ -57,9 +57,9 @@ int main(){
       answer_set.extract(input[i]);
     }
 
-    if(answer_set.empty()) has_won = true;    
+    if(answer_set.empty()) won = true;    
 
-    // find correct letters with wrong positions
+    // find correct letters with incorrect positions
     for(size_t i = 0; i < N; i++){
       if(input[i] == answer[i]) continue;
       
@@ -77,17 +77,16 @@ int main(){
     
     std::cout << "      ";	
     for(size_t i = 0; i < N; i++) std::cout << colors[i] << input[i];
-    std::cout << RESET "      ";
+    std::cout << RESET << "      ";
     for(size_t i = 0; i < 26; i++)
       std::cout << (wrong_letters[i] ? RED : MAIN_TEXT_COLOR) << char(i + 'a');
     std::cout << RESET << std::endl;
 
     turn++;
-    if(has_won)   break;
-    if(turn == 6) break;
+    if(won || turn == 6) break;
   }
 
-  if(has_won) std::cout << "You've won in " << turn << " guess" << (turn > 1 ? "es" : "") << ".\n";
+  if(won) std::cout << "You've won in " << turn << " guess" << (turn > 1 ? "es" : "") << ".\n";
   else std::cout << "You've lost. The correct answer was " << answer << ".\n";
 }
 
